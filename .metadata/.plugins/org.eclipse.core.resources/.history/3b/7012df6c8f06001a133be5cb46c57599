@@ -1,0 +1,69 @@
+package baseUI;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.math.*;
+
+public class GUI {
+	private JFrame frame;
+	private JPanel panel;
+	private JButton random;
+	private JLabel champion;
+	private JTextField field;
+	private GridLayout grid;
+	
+	public GUI() {
+		init();
+	}
+	
+	public void init() {
+		frame = new JFrame("Champion Randomizer");
+		frame.setMinimumSize(new Dimension(300, 300));
+		
+		grid = new GridLayout(4,1);
+		
+		panel = new JPanel();
+		panel.setLayout(grid);
+		//panel.setMinimumSize(new Dimension(100,100));
+		
+		champion = new JLabel("Your random champion is:");
+		champion.setAlignmentX(JLabel.CENTER);
+		champion.setAlignmentY(JLabel.CENTER);
+		champion.updateUI();
+		
+		field = new JTextField();
+		field.setEditable(false);
+		
+		random = new JButton("Randomize!");
+		//random.setPreferredSize(new Dimension(50,50));
+		random.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				randomize();
+			}			
+		});
+		
+		/*grid.addLayoutComponent("", champion);
+		grid.addLayoutComponent("", field);
+		grid.addLayoutComponent("", spacer);
+		grid.addLayoutComponent("", random);*/
+		
+		panel.add(champion);
+		panel.add(field);
+		panel.add(new JLabel());
+		panel.add(random);
+		
+		frame.setContentPane(panel);		
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	public void randomize() {
+		String champName = "Fuck, it didn't work right.";
+		double rand = Math.random();
+		
+		
+		
+		field.setText(String.valueOf(rand));
+	}
+}

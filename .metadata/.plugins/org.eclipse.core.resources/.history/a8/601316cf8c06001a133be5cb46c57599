@@ -1,0 +1,46 @@
+package baseUI;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class GUI {
+	private JFrame frame;
+	private JPanel panel;
+	private JButton random;
+	private JLabel champion;
+	private JTextField field;
+	private GridLayout grid;
+	
+	public GUI() {
+		init();
+	}
+	
+	public void init() {
+		frame = new JFrame("Champion Randomizer");
+		frame.setMinimumSize(new Dimension(300, 300));
+		
+		grid = new GridLayout(2,4);
+		
+		panel = new JPanel();
+		//panel.setMinimumSize(new Dimension(100,100));
+		random = new JButton("Randomize!");
+		champion = new JLabel("Your random champion is:");
+		field = new JTextField();
+		JLabel spacer = new JLabel();
+		
+		grid.addLayoutComponent("", champion);
+		grid.addLayoutComponent("", field);
+		grid.addLayoutComponent("", spacer);
+		grid.addLayoutComponent("", random);
+		
+		/*panel.add(champion);
+		panel.add(field);
+		panel.add(spacer);
+		panel.add(random);*/
+		
+		panel.setLayout(grid);
+		frame.add(panel);
+		
+		frame.setVisible(true);
+	}
+}
